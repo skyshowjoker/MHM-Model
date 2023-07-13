@@ -200,11 +200,11 @@ if __name__ == '__main__':
     X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=.3, random_state=62)
 
     target = [0 if i == -1 else 1 for i in target]
-    train(data, target, model_path)
+    train(X_train, X_test, model_path)
 
-    enough_test(data, target, 80, model_path)
+    enough_test(X_train, y_train, 80, model_path)
 
-    result = predict(X_test, y_test, model_path)
+    result = predict(X_test, y_train, model_path)
 
     print(y_test)
     print(result)
